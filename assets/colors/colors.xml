@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="downy">#62CDCB</color>
+    <color name="havelock_blue">#4599DB</color>
+    <color name="firefly">#09141A</color>
+    <color name="aztec">#0E191F</color>
+    <color name="gold">#ecd2a6</color>
+    <color name="plantation">#233B40</color>
+</resources>
