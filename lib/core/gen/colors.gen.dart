@@ -13,6 +13,9 @@ import 'package:flutter/material.dart';
 class ColorName {
   ColorName._();
 
+  /// Color: #D9D9D9
+  static const Color alto = Color(0xFFD9D9D9);
+
   /// Color: #0E191F
   static const Color aztec = Color(0xFF0E191F);
 
@@ -30,6 +33,9 @@ class ColorName {
 
   /// Color: #4599DB
   static const Color havelockBlue = Color(0xFF4599DB);
+
+  /// Color: #162329
+  static const Color mirage = Color(0xFF162329);
 
   /// Color: #233B40
   static const Color plantation = Color(0xFF233B40);

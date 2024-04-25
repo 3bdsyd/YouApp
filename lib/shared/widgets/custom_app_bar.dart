@@ -4,21 +4,44 @@ import 'package:you_app/core/gen/assets.gen.dart';
 import 'package:you_app/core/styles/text_styles.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
-  const CustomAppBarWidget({super.key});
+  final String? username;
+  final bool? option;
+  const CustomAppBarWidget({
+    super.key,
+    this.username,
+    this.option,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => context.router.back(),
-      child: ListTile(
-        minVerticalPadding: 27,
-        contentPadding: const EdgeInsets.only(left: 18),
-        minLeadingWidth: 0,
-        leading: Assets.icons.back.svg(),
-        title: const Text(
-          'Back',
-          style: TextStyles.style14,
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 14),
+      child: Row(
+        children: [
+          const SizedBox(height: 70),
+          Assets.icons.back.svg(),
+          const SizedBox(width: 10),
+          InkWell(
+            onTap: () => context.router.back(),
+            child: const Text(
+              'Back',
+              style: TextStyles.style14,
+            ),
+          ),
+          const Spacer(),
+          Visibility(
+            visible: username == null ? false : true,
+            child: Text(
+              '@johndoe',
+              style: TextStyles.style14.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          const Spacer(),
+          Visibility(
+            visible: option ?? false,
+            child: Assets.icons.option.svg(),
+          ),
+        ],
       ),
     );
   }

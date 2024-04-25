@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:you_app/core/gen/colors.gen.dart';
 
 class TextStyles {
+  static const TextStyle style12 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: ColorName.gold,
+  );
   static const TextStyle style13 = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w500,
