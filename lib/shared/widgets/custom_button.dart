@@ -14,12 +14,20 @@ class CustomButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:  onTap,
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         height: 48,
         width: double.infinity,
         decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: ColorName.downy.withOpacity(.5),
+              blurRadius: 8,
+              spreadRadius: 3,
+              offset: const Offset(0, 5),
+            ),
+          ],
           borderRadius: BorderRadius.circular(8),
           gradient: const LinearGradient(
             begin: Alignment.topLeft,

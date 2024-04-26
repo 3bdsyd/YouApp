@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:you_app/core/gen/colors.gen.dart';
-import 'package:you_app/core/styles/text_styles.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/profile_custom_row_form.dart';
-import 'package:you_app/features/profile/presentation/view/widgets/profile_dropdown.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/profile_row_dropdown.dart';
 
 class ProfileAboutFormsWidget extends StatelessWidget {

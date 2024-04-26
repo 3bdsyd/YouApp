@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:you_app/core/styles/text_styles.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/interest_body.dart';
 import 'package:you_app/shared/widgets/custom_image_background.dart';
 

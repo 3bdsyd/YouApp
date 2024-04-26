@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:you_app/core/styles/text_styles.dart';
-import 'package:you_app/shared/widgets/cutom_gradient_text.dart';
+import 'package:you_app/shared/widgets/custom_gradient_text.dart';
 
 class InterestTitleWidget extends StatelessWidget {
   const InterestTitleWidget({super.key});

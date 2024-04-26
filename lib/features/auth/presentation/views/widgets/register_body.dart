@@ -14,7 +14,7 @@ class RegisterBodyWidget extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 37),
+          const SizedBox(height: 50),
           const CustomAppBarWidget(),
           const SizedBox(height: 60),
           const Padding(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:you_app/core/gen/assets.gen.dart';
 import 'package:you_app/core/styles/text_styles.dart';
 
 class ProfileTopCardWidget extends StatelessWidget {
