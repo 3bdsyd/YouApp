@@ -5,21 +5,28 @@ import 'package:you_app/core/styles/text_styles.dart';
 class ProfileCustomFormWidget extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType? textInputType;
-
+  final bool? isReadOnly;
   final String hintText;
+
   const ProfileCustomFormWidget({
     super.key,
-    required this.hintText,
+    this.isReadOnly,
     this.textInputType,
+    required this.hintText,
     required this.controller,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: isReadOnly ?? false,
       controller: controller,
       textAlign: TextAlign.right,
-      style: TextStyles.style13,
+      style: isReadOnly == null
+          ? TextStyles.style13
+          : TextStyles.style13.copyWith(
+              color: ColorName.white.withOpacity(.3),
+            ),
       keyboardType: textInputType,
       decoration: InputDecoration(
         fillColor: ColorName.alto.withOpacity(.06),

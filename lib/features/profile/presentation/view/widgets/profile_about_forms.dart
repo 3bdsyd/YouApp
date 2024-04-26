@@ -15,6 +15,7 @@ class ProfileAboutFormsWidget extends StatelessWidget {
         ProfileCustomRowFormWidget(
           label: 'Display name:',
           hintText: 'Enter name',
+          textInputType: TextInputType.name,
         ),
         SizedBox(height: 12),
         ProfileRowDropdownWidget(),
@@ -22,26 +23,31 @@ class ProfileAboutFormsWidget extends StatelessWidget {
         ProfileCustomRowFormWidget(
           label: 'Birthday:',
           hintText: 'DD MM YYYY',
+          textInputType: TextInputType.number,
         ),
         SizedBox(height: 12),
         ProfileCustomRowFormWidget(
           label: 'Horoscope:',
           hintText: '--',
+          isReadOnly: true,
         ),
         SizedBox(height: 12),
         ProfileCustomRowFormWidget(
           label: 'Zodiac:',
           hintText: '--',
+          isReadOnly: true,
         ),
         SizedBox(height: 12),
         ProfileCustomRowFormWidget(
           label: 'Height:',
           hintText: 'Add height',
+          textInputType: TextInputType.number,
         ),
         SizedBox(height: 12),
         ProfileCustomRowFormWidget(
           label: 'Weight:',
           hintText: 'Add weight',
+          textInputType: TextInputType.number,
         ),
       ],
     );

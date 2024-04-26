@@ -23,6 +23,11 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     color: ColorName.white,
   );
+  static const TextStyle style20 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: ColorName.white,
+  );
   static const TextStyle style24 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w700,

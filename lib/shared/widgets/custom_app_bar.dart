@@ -18,7 +18,6 @@ class CustomAppBarWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 14),
       child: Row(
         children: [
-          const SizedBox(height: 70),
           Assets.icons.back.svg(),
           const SizedBox(width: 10),
           InkWell(

@@ -9,14 +9,14 @@ class CustomFormFieldWidget extends StatelessWidget {
   final TextInputType? textInputType;
   final Widget? suffixIcon;
   final bool? obscureText;
-  final String hintText;
 
+  final String hintText;
   const CustomFormFieldWidget({
     super.key,
     this.suffixIcon,
+    this.obscureText,
     this.textInputType,
     this.autofillHints,
-    this.obscureText,
     required this.controller,
     required this.validator,
     required this.hintText,
@@ -36,7 +36,7 @@ class CustomFormFieldWidget extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 18),
-          child: GestureDetector( child: suffixIcon),
+          child: GestureDetector(child: suffixIcon),
         ),
         suffixIconConstraints: const BoxConstraints(
           minHeight: 17,

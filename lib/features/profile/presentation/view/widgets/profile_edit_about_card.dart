@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:you_app/core/gen/assets.gen.dart';
 import 'package:you_app/core/gen/colors.gen.dart';
 import 'package:you_app/core/styles/text_styles.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/profile_about_forms.dart';
