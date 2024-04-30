@@ -3,12 +3,13 @@ import 'package:you_app/core/styles/text_styles.dart';
 
 class ProfileTopCardWidget extends StatelessWidget {
   final String title;
-  final Function onTap;
+  final Function() onTap;
   final Widget actionIcon;
   const ProfileTopCardWidget({
     super.key,
     required this.title,
-    required this.onTap, required this.actionIcon,
+    required this.onTap,
+    required this.actionIcon,
   });
 
   @override
@@ -21,7 +22,7 @@ class ProfileTopCardWidget extends StatelessWidget {
           style: TextStyles.style14,
         ),
         InkWell(
-          onTap: () => onTap,
+          onTap: onTap,
           child: actionIcon,
         ),
       ],

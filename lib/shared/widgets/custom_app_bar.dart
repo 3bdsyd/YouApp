@@ -31,7 +31,7 @@ class CustomAppBarWidget extends StatelessWidget {
           Visibility(
             visible: username == null ? false : true,
             child: Text(
-              '@johndoe',
+              username ?? '',
               style: TextStyles.style14.copyWith(fontWeight: FontWeight.w600),
             ),
           ),

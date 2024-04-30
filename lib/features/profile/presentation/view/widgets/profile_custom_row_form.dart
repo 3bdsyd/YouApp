@@ -8,13 +8,16 @@ class ProfileCustomRowFormWidget extends StatelessWidget {
   final bool? isReadOnly;
   final String hintText;
   final String label;
-
+  final TextEditingController controller;
+  final String? Function(dynamic value) validate;
   const ProfileCustomRowFormWidget({
     super.key,
     this.isReadOnly,
     this.textInputType,
     required this.label,
     required this.hintText,
+    required this.controller,
+    required this.validate,
   });
 
   @override
@@ -33,9 +36,10 @@ class ProfileCustomRowFormWidget extends StatelessWidget {
           width: 200,
           child: ProfileCustomFormWidget(
             hintText: hintText,
-            controller: TextEditingController(),
+            controller: controller,
             isReadOnly: isReadOnly,
             textInputType: textInputType,
+            validate: (value) => validate(value),
           ),
         ),
       ],

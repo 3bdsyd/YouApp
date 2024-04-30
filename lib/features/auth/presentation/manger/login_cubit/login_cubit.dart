@@ -1,9 +1,11 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:you_app/core/helper/check_forms.dart';
 import 'package:you_app/core/helper/failures_handling.dart';
 import 'package:you_app/core/helper/shared_preferences.dart';
-import 'package:you_app/core/router/app_router.dart';
 import 'package:you_app/core/router/app_router.gr.dart';
 import 'package:you_app/core/utils/constant/app_key.dart';
 import 'package:you_app/features/auth/data/repos/login/login_repo_imp.dart';
@@ -27,7 +29,6 @@ class LoginCubit extends Cubit<LoginState> {
   bool isEmail = false;
 
   Future login() async {
-
     if (!formKey.currentState!.validate()) return;
 
     emit(LoginLoading());
@@ -40,21 +41,25 @@ class LoginCubit extends Cubit<LoginState> {
       password: passwordController.text.trim(),
     )
         .then(
-      (status) {
+      (status) async {
         if (status is Failures) {
           scaffoldMessengerKey.currentState!
               .showSnackBar(customSnackBar(text: status.errMessage));
         } else if (status is Map) {
+          scaffoldMessengerKey.currentState!
+              .showSnackBar(customSnackBar(text: status['message']));
+
           if (status.containsKey('access_token')) {
             SharedPref.setString(
               AppKey.userToken,
               status['access_token'],
             );
-            AppRouter().push(const ProfileRoute());
+
+            scaffoldMessengerKey.currentContext!.router.replaceAll([
+              const ProfileRoute(),
+            ]);
+            emit(LoginSuccuss());
           }
-          scaffoldMessengerKey.currentState!
-              .showSnackBar(customSnackBar(text: status['message']));
-          emit(LoginSuccuss());
         }
       },
     );

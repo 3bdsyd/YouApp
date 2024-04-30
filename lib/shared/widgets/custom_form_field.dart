@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:you_app/core/gen/colors.gen.dart';
 import 'package:you_app/core/styles/text_styles.dart';
+import 'package:you_app/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
 
 class CustomFormFieldWidget extends StatelessWidget {
   final TextEditingController controller;
@@ -9,10 +11,12 @@ class CustomFormFieldWidget extends StatelessWidget {
   final TextInputType? textInputType;
   final Widget? suffixIcon;
   final bool? obscureText;
-
+  final Function(dynamic value)? onChanged;
   final String hintText;
+  final Widget? prefix;
   const CustomFormFieldWidget({
     super.key,
+    this.onChanged,
     this.suffixIcon,
     this.obscureText,
     this.textInputType,
@@ -20,11 +24,13 @@ class CustomFormFieldWidget extends StatelessWidget {
     required this.controller,
     required this.validator,
     required this.hintText,
+    this.prefix,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged != null ? (value) => onChanged!(value) : (value) {},
       obscureText: obscureText ?? false,
       keyboardType: textInputType,
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -32,8 +38,12 @@ class CustomFormFieldWidget extends StatelessWidget {
       controller: controller,
       autofillHints: autofillHints,
       style: TextStyles.style13,
+      textInputAction: TextInputAction.newline,
+      textAlignVertical: TextAlignVertical.top,
       cursorColor: ColorName.downy,
       decoration: InputDecoration(
+        prefixIcon: prefix,
+        floatingLabelAlignment: FloatingLabelAlignment.center,
         suffixIcon: Padding(
           padding: const EdgeInsets.only(right: 18),
           child: GestureDetector(child: suffixIcon),

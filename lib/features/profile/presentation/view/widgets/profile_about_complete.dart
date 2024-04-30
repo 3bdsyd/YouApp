@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:you_app/core/gen/assets.gen.dart';
 import 'package:you_app/core/gen/colors.gen.dart';
+import 'package:you_app/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/profile_about_item_complete.dart';
 import 'package:you_app/features/profile/presentation/view/widgets/profile_top_card.dart';
 
@@ -21,29 +23,33 @@ class ProfileAboutCompleteWidget extends StatelessWidget {
         children: [
           ProfileTopCardWidget(
             title: 'About',
-            onTap: () => {},
+            onTap: () => context.read<ProfileCubit>().setShowEditAbout(true),
             actionIcon: Assets.icons.edit.svg(),
           ),
           const SizedBox(height: 24),
-          const ProfileAboutItemComplete(
+          ProfileAboutItemComplete(
             leading: 'Birthday: ',
-            title: '28 / 08 / 1995 (Age 28)',
+            title:
+                context.read<ProfileCubit>().profileData!.birthday.toString(),
           ),
-          const ProfileAboutItemComplete(
+          ProfileAboutItemComplete(
             leading: 'Horoscope: ',
-            title: 'Virgo',
+            title:
+                context.read<ProfileCubit>().profileData!.horoscope.toString(),
           ),
-          const ProfileAboutItemComplete(
+          ProfileAboutItemComplete(
             leading: 'Zodiac: ',
-            title: 'Pig',
+            title: context.read<ProfileCubit>().profileData!.zodiac.toString(),
           ),
-          const ProfileAboutItemComplete(
+          ProfileAboutItemComplete(
             leading: 'Height: ',
-            title: '175 cm',
+            title:
+                '${context.read<ProfileCubit>().profileData!.height.toString()} cm',
           ),
-          const ProfileAboutItemComplete(
+          ProfileAboutItemComplete(
             leading: 'Weight: ',
-            title: '69 kg',
+            title:
+                '${context.read<ProfileCubit>().profileData!.weight.toString()} kg',
           ),
         ],
       ),

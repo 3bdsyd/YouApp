@@ -15,6 +15,22 @@ class FormsValidate {
     return null;
   }
 
+  static String? getNumberValidate(String number) {
+    if (!CheckForms.checkEmpty(number)) return 'Field is required *';
+
+    if (!CheckForms.checkNumberRegex(number)) return 'Number is Invalid';
+
+    return null;
+  }
+
+  static String? getNameValidate(String name) {
+    if (!CheckForms.checkEmpty(name)) return 'Field is required *';
+
+    if (!CheckForms.checkNameRegex(name)) return 'name is Invalid';
+
+    return null;
+  }
+
   static String? getUsernameValidate(String username) {
     if (!CheckForms.checkEmpty(username)) return 'Field is required *';
 

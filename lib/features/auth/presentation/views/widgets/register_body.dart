@@ -26,7 +26,8 @@ class RegisterBodyWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 22),
             child: CustomButtonWidget(
               text: 'Register',
-              onTap: () async => await context.read<RegisterCubit>().register(),
+              onTap: () async => await context.read<RegisterCubit>().register(
+                 ),
             ),
           ),
           const SizedBox(height: 40),

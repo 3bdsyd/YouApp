@@ -9,6 +9,22 @@ class CheckForms {
     return regex.hasMatch(value);
   }
 
+  static bool checkNameRegex(String value) {
+    final regex = RegExp(
+      AppRegularExpressions.nameRegExp,
+      caseSensitive: false,
+    );
+    return regex.hasMatch(value);
+  }
+
+  static bool checkNumberRegex(String value) {
+    final regex = RegExp(
+      AppRegularExpressions.doubleRegExp,
+      caseSensitive: false,
+    );
+    return regex.hasMatch(value);
+  }
+
   static bool checkUsernameRegex(String value) {
     final regex = RegExp(
       AppRegularExpressions.usernameRegExp,

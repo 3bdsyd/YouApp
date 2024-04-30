@@ -7,18 +7,20 @@ class ProfileCustomFormWidget extends StatelessWidget {
   final TextInputType? textInputType;
   final bool? isReadOnly;
   final String hintText;
-
+  final String? Function(dynamic value) validate;
   const ProfileCustomFormWidget({
     super.key,
     this.isReadOnly,
     this.textInputType,
     required this.hintText,
     required this.controller,
+    required this.validate,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       readOnly: isReadOnly ?? false,
       controller: controller,
       textAlign: TextAlign.right,
@@ -27,6 +29,7 @@ class ProfileCustomFormWidget extends StatelessWidget {
           : TextStyles.style13.copyWith(
               color: ColorName.white.withOpacity(.3),
             ),
+      validator: (value) => validate(value),
       keyboardType: textInputType,
       decoration: InputDecoration(
         fillColor: ColorName.alto.withOpacity(.06),

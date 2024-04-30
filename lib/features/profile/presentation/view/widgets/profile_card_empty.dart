@@ -7,7 +7,7 @@ import 'package:you_app/features/profile/presentation/view/widgets/profile_top_c
 class ProfileCardEmptyWidget extends StatelessWidget {
   final String title;
   final String text;
-  final Function onTap;
+  final Function() onTap;
   const ProfileCardEmptyWidget({
     super.key,
     required this.text,
@@ -29,7 +29,7 @@ class ProfileCardEmptyWidget extends StatelessWidget {
         children: [
           ProfileTopCardWidget(
             title: title,
-            onTap: () => onTap,
+            onTap: onTap,
             actionIcon: Assets.icons.edit.svg(),
           ),
           const SizedBox(height: 28),

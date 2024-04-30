@@ -1,10 +1,11 @@
 import 'dart:developer';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:you_app/core/helper/failures_handling.dart';
-import 'package:you_app/core/helper/shared_preferences.dart';
-import 'package:you_app/core/utils/constant/app_key.dart';
+import 'package:you_app/core/router/app_router.dart';
+import 'package:you_app/core/router/app_router.gr.dart';
 import 'package:you_app/features/auth/data/repos/register/register_repo_imp.dart';
 import 'package:you_app/shared/widgets/custom_snack_bar.dart';
 
@@ -43,12 +44,16 @@ class RegisterCubit extends Cubit<RegisterState> {
           scaffoldMessengerKey.currentState!
               .showSnackBar(customSnackBar(text: status.errMessage));
         } else if (status is Map) {
-          SharedPref.setString(AppKey.userToken, "");
-
-          log(' status["token"]: ${status['token']}');
           scaffoldMessengerKey.currentState!
               .showSnackBar(customSnackBar(text: status['message']));
-          emit(RegisterSuccuss());
+
+          if (status['message'] == 'User has been created successfully') {
+            await Future.delayed(const Duration(seconds: 1));
+            await scaffoldMessengerKey.currentContext!.router.push(
+              const LoginRoute(),
+            );
+            emit(RegisterSuccuss());
+          }
         }
       },
     );
